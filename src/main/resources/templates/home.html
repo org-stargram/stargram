@@ -13,7 +13,7 @@
         <meta property="og:url" content="" />
         <meta property="og:description" content="" />
 
-        <link type="text/css" th:href="@{/css/demos/photo.css}" rel="stylesheet" />
+        <link type="text/css" th:href="@{/assets/css/demos/photo.css}" rel="stylesheet" />
     </th:block>
 
 </head>
@@ -33,14 +33,14 @@ News Feed Section
 
                     <!--/ 4개 반복시킴 storybox -->
                     <div class="storybox"
-                         th:style="@{background: linear-gradient( rgba(34,34,34,0.78), rgba(34,34,34,0.78)), url('/img/posts/2.gif') no-repeat;
+                         th:style="@{background: linear-gradient( rgba(34,34,34,0.78), rgba(34,34,34,0.78)), url('/assets/img/posts/2.gif') no-repeat;
 		          background-size: cover;
                   background-position: center center;
                   -webkit-background-size: cover;
                   -moz-background-size: cover;
                   -o-background-size: cover;}">
                         <div class="story-body text-center">
-                            <div class=""><img class="img-circle" th:src="@{/img/users/10.jpg}" alt="user"></div>
+                            <div class=""><img class="img-circle" th:src="@{/assets/img/users/10.jpg}" alt="user"></div>
                             <h4>Clifford Graham</h4>
                             <p>2 hours ago</p>
                         </div>
@@ -76,7 +76,7 @@ News Feed Section
                         <!-- END dropdown-->
                         <div class="media m-0">
                             <div class="d-flex mr-3">
-                                <a href="#"><img class="img-responsive img-circle" th:src="@{/img/users/18.jpg}" alt="User"></a>
+                                <a href="#"><img class="img-responsive img-circle" th:src="@{/assets/img/users/18.jpg}" alt="User"></a>
                             </div>
                             <div class="media-body">
                                 <p class="m-0">Benjamin Robinson</p>
@@ -87,21 +87,21 @@ News Feed Section
 
                     <div class="cardbox-item">
                         <a href="#myModal" data-toggle="modal">
-                            <img class="img-responsive" th:src="@{/img/posts/1.jpg}" alt="MaterialImg">
+                            <img class="img-responsive" th:src="@{/assets/img/posts/1.jpg}" alt="MaterialImg">
                         </a>
                     </div><!--/ cardbox-item -->
                     <div class="cardbox-base">
                         <ul>
-                            <li><a href="#"><img th:src="@{/img/users/1.jpg}" class="img-responsive img-circle" alt="User"></a></li>
-                            <li><a href="#"><img th:src="@{/img/users/2.jpg}" class="img-responsive img-circle" alt="User"></a></li>
-                            <li><a href="#"><img th:src="@{/img/users/3.jpg}" class="img-responsive img-circle" alt="User"></a></li>
-                            <li><a href="#"><img th:src="@{/img/users/4.jpg}" class="img-responsive img-circle" alt="User"></a></li>
-                            <li><a href="#"><img th:src="@{/img/users/5.jpg}" class="img-responsive img-circle" alt="User"></a></li>
-                            <li><a href="#"><img th:src="@{/img/users/6.jpg}" class="img-responsive img-circle" alt="User"></a></li>
-                            <li><a href="#"><img th:src="@{/img/users/7.jpg}" class="img-responsive img-circle" alt="User"></a></li>
-                            <li><a href="#"><img th:src="@{/img/users/8.jpg}" class="img-responsive img-circle" alt="User"></a></li>
-                            <li><a href="#"><img th:src="@{/img/users/9.jpg}" class="img-responsive img-circle" alt="User"></a></li>
-                            <li><a href="#"><img th:src="@{/img/users/10.jpg}" class="img-responsive img-circle" alt="User"></a></li>
+                            <li><a href="#"><img th:src="@{/assets/img/users/1.jpg}" class="img-responsive img-circle" alt="User"></a></li>
+                            <li><a href="#"><img th:src="@{/assets/img/users/2.jpg}" class="img-responsive img-circle" alt="User"></a></li>
+                            <li><a href="#"><img th:src="@{/assets/img/users/3.jpg}" class="img-responsive img-circle" alt="User"></a></li>
+                            <li><a href="#"><img th:src="@{/assets/img/users/4.jpg}" class="img-responsive img-circle" alt="User"></a></li>
+                            <li><a href="#"><img th:src="@{/assets/img/users/5.jpg}" class="img-responsive img-circle" alt="User"></a></li>
+                            <li><a href="#"><img th:src="@{/assets/img/users/6.jpg}" class="img-responsive img-circle" alt="User"></a></li>
+                            <li><a href="#"><img th:src="@{/assets/img/users/7.jpg}" class="img-responsive img-circle" alt="User"></a></li>
+                            <li><a href="#"><img th:src="@{/assets/img/users/8.jpg}" class="img-responsive img-circle" alt="User"></a></li>
+                            <li><a href="#"><img th:src="@{/assets/img/users/9.jpg}" class="img-responsive img-circle" alt="User"></a></li>
+                            <li><a href="#"><img th:src="@{/assets/img/users/10.jpg}" class="img-responsive img-circle" alt="User"></a></li>
                         </ul>
                     </div><!--/ cardbox-base -->
                     <div class="cardbox-like">
@@ -122,7 +122,7 @@ News Feed Section
 
                         <!-- 6개 반복시킴 suggestion-body -->
                         <div class="suggestion-body">
-                            <img class="img-responsive img-circle" th:src="@{/img/users/17.jpg}" alt="Image">
+                            <img class="img-responsive img-circle" th:src="@{/assets/img/users/17.jpg}" alt="Image">
                             <div class="name-box">
                                 <h4>Anthony McCartney</h4>
                                 <span>@antony</span>
@@ -146,10 +146,10 @@ News Feed Section
                     <!-- 3개 반복시킴 row -->
                     <div class="row">
                         <div class="col-lg-6">
-                            <a href="#"><img th:src="@{/img/posts/17.jpg}" class="img-responsive" alt="Image"/></a>
+                            <a href="#"><img th:src="@{/assets/img/posts/17.jpg}" class="img-responsive" alt="Image"/></a>
                         </div>
                         <div class="col-lg-6">
-                            <a href="#"><img th:src="@{/img/posts/12.jpg}" class="img-responsive" alt="Image"/></a>
+                            <a href="#"><img th:src="@{/assets/img/posts/12.jpg}" class="img-responsive" alt="Image"/></a>
                         </div>
                     </div>
                 </div>
@@ -173,7 +173,7 @@ Modal Section
                 <div class="row">
 
                     <div class="col-md-8 modal-image">
-                        <img class="img-responsive" th:src="@{/img/posts/1.jpg}" alt="Image"/>
+                        <img class="img-responsive" th:src="@{/assets/img/posts/1.jpg}" alt="Image"/>
                     </div><!--/ col-md-8 -->
                     <div class="col-md-4 modal-meta">
                         <div class="modal-meta-top">
@@ -181,7 +181,7 @@ Modal Section
                                 <span aria-hidden="true">×</span><span class="sr-only">Close</span>
                             </button><!--/ button -->
                             <div class="img-poster clearfix">
-                                <a href="#"><img class="img-responsive img-circle" th:src="@{/img/users/18.jpg}" alt="Image"/></a>
+                                <a href="#"><img class="img-responsive img-circle" th:src="@{/assets/img/users/18.jpg}" alt="Image"/></a>
                                 <strong><a href="#">Benjamin</a></strong>
                                 <span>12 minutes ago</span><br/>
                                 <a href="#" class="kafe kafe-btn-mint-small"><i class="fa fa-check-square"></i> Following</a>
@@ -190,7 +190,7 @@ Modal Section
                             <ul class="img-comment-list">
                                 <li>
                                     <div class="comment-img">
-                                        <img th:src="@{/img/users/17.jpg}" class="img-responsive img-circle" alt="Image"/>
+                                        <img th:src="@{/assets/img/users/17.jpg}" class="img-responsive img-circle" alt="Image"/>
                                     </div>
                                     <div class="comment-text">
                                         <strong><a href="#">Anthony McCartney</a></strong>
@@ -199,7 +199,7 @@ Modal Section
                                 </li><!--/ li -->
                                 <li>
                                     <div class="comment-img">
-                                        <img th:src="@{/img/users/15.jpg}" class="img-responsive img-circle" alt="Image"/>
+                                        <img th:src="@{/assets/img/users/15.jpg}" class="img-responsive img-circle" alt="Image"/>
                                     </div>
                                     <div class="comment-text">
                                         <strong><a href="#">Vanessa Wells</a></strong>
@@ -208,7 +208,7 @@ Modal Section
                                 </li><!--/ li -->
                                 <li>
                                     <div class="comment-img">
-                                        <img th:src="@{/img/users/14.jpg}" class="img-responsive img-circle" alt="Image"/>
+                                        <img th:src="@{/assets/img/users/14.jpg}" class="img-responsive img-circle" alt="Image"/>
                                     </div>
                                     <div class="comment-text">
                                         <strong><a href="#">Sean Coleman</a></strong>
@@ -217,7 +217,7 @@ Modal Section
                                 </li><!--/ li -->
                                 <li>
                                     <div class="comment-img">
-                                        <img th:src="@{/img/users/13.jpg}" class="img-responsive img-circle" alt="Image"/>
+                                        <img th:src="@{/assets/img/users/13.jpg}" class="img-responsive img-circle" alt="Image"/>
                                     </div>
                                     <div class="comment-text">
                                         <strong><a href="#">Anna Morgan</a></strong>
@@ -226,7 +226,7 @@ Modal Section
                                 </li><!--/ li -->
                                 <li>
                                     <div class="comment-img">
-                                        <img th:src="@{/img/users/3.jpg}" class="img-responsive img-circle" alt="Image"/>
+                                        <img th:src="@{/assets/img/users/3.jpg}" class="img-responsive img-circle" alt="Image"/>
                                     </div>
                                     <div class="comment-text">
                                         <strong><a href="#">Allison Fowler</a></strong>
@@ -241,7 +241,7 @@ Modal Section
                                         <a class="modal-comment" href="#"><i class="fa fa-comments"></i></a><span> 786,286</span> </li>
                                     <li>
 			   <span class="thumb-xs">
-				<img class="img-responsive img-circle" src="../../../www.bootdey.com/img/Content/user_3.jpg" alt="Image">
+				<img class="img-responsive img-circle" src="../../../www.bootdey.com/assets/img/Content/user_3.jpg" alt="Image">
 			   </span>
                                         <div class="comment-body">
                                             <input class="form-control input-sm" type="text" placeholder="Write your comment...">

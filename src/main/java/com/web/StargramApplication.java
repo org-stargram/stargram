@@ -18,7 +18,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Configuration
+
 @SpringBootApplication
 public class StargramApplication implements WebMvcConfigurer {
 
@@ -37,13 +37,6 @@ public class StargramApplication implements WebMvcConfigurer {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
-	@Override
-	public void addCorsMappings(CorsRegistry registry) {
-		registry.addMapping("/**")
-				.allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD")
-				.allowedOrigins("*")
-				.allowedHeaders("*");
-	}
 
 	@Bean
 	public CommandLineRunner runner(UserRepository userRepository) {
