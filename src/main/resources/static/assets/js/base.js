@@ -1,8 +1,7 @@
-	$('.dropdown-toggle').click(function(event){
-		 event.stopImmediatePropagation()
+/*	$('.dropdown-toggle').click(function(event){
          event.stopPropagation()
 	 });​
-
+*/
 $(document).ready(function() {
     
 	$('ul.nav li.dropdown').hover(function() {

@@ -4,17 +4,15 @@
       xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
       layout:decorator="/layout/accountLayout">
 <head>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:description" content="" />
+
     <title>login</title>
 
-    <th:block layout:fragment="pageCustomHead">
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
-        <meta property="og:title" content="" />
-        <meta property="og:url" content="" />
-        <meta property="og:description" content="" />
-
-        <link type="text/css" th:href="@{/assets/css/demos/photo.css}" rel="stylesheet" />
-    </th:block>
+    <link type="text/css" th:href="@{/assets/css/demos/photo.css}" rel="stylesheet" />
 
 </head>
 <body>
@@ -59,7 +57,6 @@
     <script>
         $('.btn_social').click(function () {
             var socialType = $(this).data('social');
-            alert("")
             location.href="/oauth2/authorization/"+socialType;
         });
     </script>
