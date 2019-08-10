@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    url: jdbc:mysql://mysql-seoul.ckrdfluznthc.ap-northeast-2.rds.amazonaws.com:3306/test?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+    username: root
+    password: root1234
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+  h2:
+    console:
+      enabled: true
+    path: /console
+  devtools:
+    livereload:
+      enabled: true
+  thymeleaf:
+    encoding: UTF-8
+    suffix: .html
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 802139856592-9d8nakta5fg505biji4gfkijokaaiif0.apps.googleusercontent.com
+            client-secret: asP7sOXBTbjuOlvtK1HtI9jl
+          facebook:
+            client-id: 1052389201626046
+            client-secret: 91ae5e3f544d4d9f9a43db0c2af58b66
+
+custom:
+  oauth2:
+    kakao:
+      client-id: 5ba7a22f6c6f6cfce15c09538b47889c
