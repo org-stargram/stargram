@@ -1,4 +1,6 @@
-<!-- 사용하지 않는 페이지 -->
+
+
+<!-- 사용하지 않는 페이지 (공부용!!) -->
 
 <!DOCTYPE html>
 <html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
@@ -6,7 +8,9 @@
       xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
       layout:decorator="layout/defaultLayout">
 <head>
-    <meta name="description" content="" />
+    <th:block layout:fragment="pageCustomHead">
+        <meta name="description" content="" />
+    </th:block>
 
     <title>Home</title>
 
@@ -18,7 +22,6 @@
 </head>
 <body>
 
-
     <th:block layout:fragment="content">
         <h1>내용 작성 </h1>
         <button class="btn"></button>
@@ -28,10 +31,10 @@
     <th:block layout:fragment="pageCustomScript">
 
         <script>
-            $('.btn').click({
-                alert("test");
-            });
-        </script>
+        $('.btn').click({
+            alert("test");
+        });
+    </script>
     </th:block>
 
 </body>
