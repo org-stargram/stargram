@@ -2,7 +2,7 @@
 <html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
       xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
-      layout:decorator="layout/defaultLayout">
+      layout:decorator="/layout/defaultLayout">
 <head>
     <title>Home</title>
 
@@ -265,7 +265,7 @@ Modal Section
 
 <th:block layout:fragment="pageCustomScript">
 
-    <script th:src="@{/plugins/slimscroll/jquery.slimscroll.js}"></script>
+    <script th:src="@{/assets/plugins/slimscroll/jquery.slimscroll.js}"></script>
     <script>
         $('#Slim,#Slim2').slimScroll({
                 height:"auto",

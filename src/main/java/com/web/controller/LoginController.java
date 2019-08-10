@@ -34,7 +34,7 @@ public class LoginController  {
     @GetMapping("/login")
     public String login() {   // 추가부분
 
-        return "login";
+        return "/login";
     }
 
     @GetMapping("/loginSuccess")

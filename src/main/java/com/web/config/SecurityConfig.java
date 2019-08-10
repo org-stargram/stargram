@@ -35,7 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
             .authorizeRequests()
-                .antMatchers("/", "/login", "/oauth2/**", "/login/**", "/upload/**", "/fragments/**",
+                .antMatchers("/", "/oauth2/**", "/login/**", "/upload/**", "/fragments/**",
                         "/board/list", "/assets/**", "/console/**", "/layout/**").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
@@ -52,8 +52,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/formLogin")
-                .usernameParameter("username")
-                .passwordParameter("password")
                 .successForwardUrl("/formLoginSuccess") // 추가부분
                 .permitAll()
             .and()

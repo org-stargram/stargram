@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
       xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
-      layout:decorator="layout/accountLayout">
+      layout:decorator="/layout/accountLayout">
 <head>
     <title>login</title>
 
@@ -38,9 +38,9 @@
                 <button class="kafe-btn kafe-btn-mint btn-block" type="submit" name="subm">Sign in</button>
                 <br/>
 
-                <a href="javascript:;" class="btn_social" data-social="facebook"><img th:src="@{/assets/img/facebook.png}" width="40px" height="40px"/></a>
-                <a href="javascript:;" class="btn_social" data-social="google"><img th:src="@{/assets/img/google.png}" width="40px" height="40px"/></a>
-                <a href="javascript:;" class="btn_social" data-social="kakao"><img th:src="@{/assets/img/kakao.png}" width="40px" height="40px"/></a>
+                <a href="javascript:void(0);" class="btn_social" data-social="facebook"><img th:src="@{/assets/img/sns/facebook.png}" width="40px" height="40px"/></a>
+                <a href="javascript:void(0);" class="btn_social" data-social="google"><img th:src="@{/assets/img/sns/google.png}" width="40px" height="40px"/></a>
+                <a href="javascript:void(0);" class="btn_social" data-social="kakao"><img th:src="@{/assets/img/sns/kakao.png}" width="40px" height="40px"/></a>
 
                 <br/><br/><br/>
 
@@ -55,16 +55,14 @@
 
 <th:block layout:fragment="pageCustomScript">
     <!-- script 시작 -->
-    <script th:src="@{/js/jquery.min.js}"></script>
+
     <script>
         $('.btn_social').click(function () {
             var socialType = $(this).data('social');
+            alert("")
             location.href="/oauth2/authorization/"+socialType;
         });
     </script>
-
-    <script th:src="@{/js/bootstrap.min.js}"></script>
-    <script th:src="@{/js/base.js}"></script>
     <!-- script 끝 -->
 </th:block>
 
