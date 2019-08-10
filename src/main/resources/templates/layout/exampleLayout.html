@@ -1,20 +1,38 @@
+<!-- 사용하지 않는 페이지 -->
+
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
       xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
       layout:decorator="layout/defaultLayout">
-    <head>
-        <title>Thymeleaf 예제</title>
-    </head>
-    <body>
-        <th:block layout:fragment="content">
-            <h1>Page Content</h1>
-        </th:block>
+<head>
+    <meta name="description" content="" />
 
-        <th:block layout:fragment="pageCustomScript">
-            <script th:src="@{/assets/vendor/jquery/jquery.js}"></script>
-        </th:block>
-        <th:block layout:fragment="pageCustomCss">
-            <script th:src="@{/assets/vendor/jquery/jquery.css}"></script>
-        </th:block>
-    </body>
+    <title>Home</title>
+
+    <!-- 공통 css를 제외한 페이지용 css -->
+    <th:block layout:fragment="pageCustomCss">
+        <link type="text/css" th:href="@{/css/demos/photo.css}" rel="stylesheet" />
+    </th:block>
+
+</head>
+<body>
+
+
+    <th:block layout:fragment="content">
+        <h1>내용 작성 </h1>
+        <button class="btn"></button>
+    </th:block>
+
+    <!-- 공통 js를 제외한 페이지용 js -->
+    <th:block layout:fragment="pageCustomScript">
+
+        <script>
+            $('.btn').click({
+                alert("test");
+            });
+        </script>
+    </th:block>
+
+</body>
 </html>
