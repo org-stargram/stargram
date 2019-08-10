@@ -8,14 +8,10 @@
       xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
       layout:decorator="layout/defaultLayout">
 <head>
+    <title>Home</title>
     <th:block layout:fragment="pageCustomHead">
         <meta name="description" content="" />
-    </th:block>
 
-    <title>Home</title>
-
-    <!-- 공통 css를 제외한 페이지용 css -->
-    <th:block layout:fragment="pageCustomCss">
         <link type="text/css" th:href="@{/css/demos/photo.css}" rel="stylesheet" />
     </th:block>
 

@@ -4,17 +4,15 @@
       xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
       layout:decorator="layout/defaultLayout">
 <head>
+    <title>Home</title>
+
     <th:block layout:fragment="pageCustomHead">
         <meta name="description" content="" />
         <meta name="keywords" content="" />
         <meta property="og:title" content="" />
         <meta property="og:url" content="" />
         <meta property="og:description" content="" />
-    </th:block>
 
-    <title>Home</title>
-
-    <th:block layout:fragment="pageCustomCss">
         <link type="text/css" th:href="@{/css/demos/photo.css}" rel="stylesheet" />
     </th:block>
 

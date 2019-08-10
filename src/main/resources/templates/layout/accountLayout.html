@@ -11,16 +11,9 @@
 
 </head>
 <body>
-    <!-- 공통 header & navbar-->
-    <header th:replace="fragments/commonHeader :: header"></header>
-    <header th:replace="fragments/commonHeader :: navbar"></header>
 
     <!-- page content body 구성 -->
     <th:block layout:fragment="content"></th:block>
-
-
-    <!-- 공통 footer -->
-<!--        <footer th:replace="fragments/commonFooter :: commonFooter"></footer>-->
 
     <!-- 공통 javascript -->
     <th:block th:replace="fragments/commonScript"></th:block>
