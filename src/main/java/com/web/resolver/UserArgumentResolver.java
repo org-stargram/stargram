@@ -62,9 +62,9 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
 
                 user = userRepository.findByEmail(convertUser.getEmail());
 
-                // 추가부분
+                /// 추가부분
                 if (user != null) {
-                    if (!String.valueOf(user.getSocialType()).equals(String.valueOf(authority))) {
+                    if (!String.valueOf(user.getSocialType()).equals(String.valueOf(authority).toUpperCase())) {
 
                         user = userRepository.save(convertUser);
                     }
@@ -75,6 +75,7 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
 
                 setRoleIfNotSame(user, authentication, map);
                 session.setAttribute("user", user);
+
             } catch (ClassCastException e) {
                 return user;
             }

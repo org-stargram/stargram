@@ -32,18 +32,18 @@ public class LoginController  {
     UserRepository userRepository;
 
     @GetMapping("/login")
-    public String login() {   // 추가부분
-
-        return "login";
+    public String login() {
+        return "/login";
     }
 
     @GetMapping("/loginSuccess")
-    public String loginComplete(@SocialUser User user) {
+    public String loginComplete(@SocialUser User user)
+    {
         return "redirect:/";
     }
 
     // -- 추가부분
-    @RequestMapping(value = "/formLoginSuccess", method = RequestMethod.POST)
+    @RequestMapping(value = "/formLoginSuccess", method = RequestMethod.GET)
     public String formLoginComplete(HttpServletRequest request) {
 
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();

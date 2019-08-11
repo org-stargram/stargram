@@ -28,7 +28,16 @@ spring:
             client-id: 1052389201626046
             client-secret: 91ae5e3f544d4d9f9a43db0c2af58b66
 
+# Security log level Setting
+
+logging:
+  level:
+    org:
+      springframework:
+        security: debug
+
 custom:
   oauth2:
     kakao:
       client-id: 5ba7a22f6c6f6cfce15c09538b47889c
+

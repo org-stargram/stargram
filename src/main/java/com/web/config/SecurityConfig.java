@@ -37,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
             .and()
                 .oauth2Login()
-                .defaultSuccessUrl("/loginSuccess")
+                .defaultSuccessUrl("/loginSuccess", false)
                 .failureUrl("/loginFailure")
             .and()
                 .headers().frameOptions().disable()
@@ -48,7 +48,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/formLogin")
-                .successForwardUrl("/formLoginSuccess") // 추가부분
+                .defaultSuccessUrl("/formLoginSuccess", true) // 추가부분
                 .permitAll()
             .and()
                 .logout()
