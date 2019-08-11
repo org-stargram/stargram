@@ -28,15 +28,12 @@ import java.util.stream.Collectors;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         CharacterEncodingFilter filter = new CharacterEncodingFilter();
-
         http
             .authorizeRequests()
-                .antMatchers("/", "/oauth2/**", "/login/**", "/upload/**", "/fragments/**",
-                        "/board/list", "/assets/**", "/console/**", "/layout/**").permitAll()
+                .antMatchers("/", "/oauth2/**", "/login/**", "/upload/**", "/fragments/**", "/board/list", "/assets/**", "/console/**", "/layout/**").permitAll()
                 .anyRequest().authenticated()
             .and()
                 .oauth2Login()
