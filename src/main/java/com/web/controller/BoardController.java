@@ -32,6 +32,12 @@ public class BoardController {
         return "board/form";
     }
 
+    @GetMapping("/home")
+    public String home(@PageableDefault Pageable pageable, @SocialUser User user, Model model) {
+        model.addAttribute("boardList", boardService.findBoardList(pageable));
+        return "home";
+    }
+
     @GetMapping("/list")
     public String list(@PageableDefault Pageable pageable, @SocialUser User user, Model model) {
         model.addAttribute("boardList", boardService.findBoardList(pageable));

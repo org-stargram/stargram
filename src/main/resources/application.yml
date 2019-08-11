@@ -16,7 +16,7 @@ spring:
       enabled: true
   thymeleaf:
     encoding: UTF-8
-    suffix: .html
+    cache: false
   security:
     oauth2:
       client:

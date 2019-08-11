@@ -37,7 +37,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
                 .antMatchers("/", "/oauth2/**", "/login/**", "/upload/**", "/fragments/**",
                         "/board/list", "/assets/**", "/console/**", "/layout/**").permitAll()
-                .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
             .and()
                 .oauth2Login()
@@ -90,7 +89,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .scope("email", "profile")
                     .build();
         }
-
         if ("facebook".equals(client)) {
             OAuth2ClientProperties.Registration registration = clientProperties.getRegistration().get("facebook");
             return CommonOAuth2Provider.FACEBOOK.getBuilder(client)

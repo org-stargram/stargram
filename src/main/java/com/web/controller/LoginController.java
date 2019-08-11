@@ -34,7 +34,7 @@ public class LoginController  {
     @GetMapping("/login")
     public String login() {   // 추가부분
 
-        return "/login";
+        return "login";
     }
 
     @GetMapping("/loginSuccess")
@@ -44,7 +44,7 @@ public class LoginController  {
 
     // -- 추가부분
     @RequestMapping(value = "/formLoginSuccess", method = RequestMethod.POST)
-    public String formLoginComplete( HttpServletRequest request) {
+    public String formLoginComplete(HttpServletRequest request) {
 
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         UserDetails userDetails = (UserDetails) principal;

@@ -59,13 +59,13 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
                 String authority = authentication.getAuthorizedClientRegistrationId();
                 User convertUser = convertUser(authority, map);
 
-                assert convertUser != null;
+
                 user = userRepository.findByEmail(convertUser.getEmail());
 
                 // 추가부분
                 if (user != null) {
                     if (!String.valueOf(user.getSocialType()).equals(String.valueOf(authority))) {
-                        assert convertUser != null;
+
                         user = userRepository.save(convertUser);
                     }
                 }

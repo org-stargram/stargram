@@ -13,6 +13,8 @@
     <title>login</title>
 
     <link type="text/css" th:href="@{/assets/css/demos/photo.css}" rel="stylesheet" />
+    <link type="text/css" th:href="@{/assets/css/demos/base.css}" rel="stylesheet" />
+    <link type="text/css" th:href="@{/assets/css/demos/bootstrap.min.css}" rel="stylesheet" />
 
 </head>
 <body>
@@ -57,6 +59,8 @@
     <script>
         $('.btn_social').click(function () {
             var socialType = $(this).data('social');
+            var path = window.location.pathname;
+            // alert(path);
             location.href="/oauth2/authorization/"+socialType;
         });
     </script>
