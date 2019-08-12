@@ -33,11 +33,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         CharacterEncodingFilter filter = new CharacterEncodingFilter();
         http
             .authorizeRequests()
-                .antMatchers("/", "/oauth2/**", "/login/**", "/upload/**", "/fragments/**", "/board/list", "/assets/**", "/console/**", "/layout/**").permitAll()
+                .antMatchers("/", "/oauth2/**", "/login/**", "/register", "/upload/**",
+                        "/fragments/**", "/board/list", "/assets/**", "/console/**", "/layout/**").permitAll()
                 .anyRequest().authenticated()
             .and()
                 .oauth2Login()
-                .defaultSuccessUrl("/loginSuccess", false)
+                .defaultSuccessUrl("/loginSuccess")
                 .failureUrl("/loginFailure")
             .and()
                 .headers().frameOptions().disable()

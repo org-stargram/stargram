@@ -2,38 +2,41 @@ package com.web.controller;
 
 import com.web.annotation.SocialUser;
 import com.web.domain.User;
-import com.web.domain.enums.SocialType;
 import com.web.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.security.Principal;
-import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by KimYJ on 2017-09-13.
  */
 @Controller
-public class LoginController  {
+public class AccountController {
 
     @Autowired
     UserRepository userRepository;
 
     @GetMapping("/login")
     public String login() {
-        return "/login";
+        return "login";
+    }
+
+    @GetMapping("/register")
+    public String register(Model model, HttpSession session) {
+        String email = null;
+        if (session.getAttribute("user.email") != null){
+            email = session.getAttribute("user.email").toString();
+        }
+        model.addAttribute("user", userRepository.findByEmail(email));
+        return "register";
     }
 
     @GetMapping("/loginSuccess")

@@ -16,13 +16,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class LoginService implements UserDetailsService {
+public class LoginService implements org.springframework.security.core.userdetails.UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public org.springframework.security.core.userdetails.UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         com.web.domain.User domainUser = userRepository.findByEmail(username);
 

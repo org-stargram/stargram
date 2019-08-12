@@ -34,12 +34,12 @@ public class MainController {
 
     @GetMapping("/photo_explore")
     public String photo_explore(@SocialUser User user) {
-        return "/main/photo_explore";
+        return "main/photo_explore";
     }
 
     @GetMapping("/photo_upload")
     public String photo_upload(@SocialUser User user) {
-        return "/main/photo_upload";
+        return "main/photo_upload";
     }
 
 }
