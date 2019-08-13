@@ -1,8 +1,10 @@
 package com.web.service;
 
+import com.web.domain.UploadFile;
 import com.web.exception.FileDownloadException;
 import com.web.exception.FileUploadException;
 import com.web.property.FileUploadProperties;
+import com.web.repository.FileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -16,10 +18,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.Optional;
 
 @Service
 public class FileUploadDownloadService {
     private final Path fileLocation;
+
+    @Autowired
+    FileRepository fileRepository;
 
     @Autowired
     public FileUploadDownloadService(FileUploadProperties prop) {
@@ -32,8 +38,7 @@ public class FileUploadDownloadService {
             throw new FileUploadException("파일을 업로드할 디렉토리를 생성하지 못했습니다.", e);
         }
     }
-
-    public String storeFile(MultipartFile file) {
+    public UploadFile storeFile(MultipartFile file) {
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 
         try {
@@ -45,11 +50,15 @@ public class FileUploadDownloadService {
 
             Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
 
-            return fileName;
+            UploadFile uploadFile = new UploadFile(fileName, file.getSize(), file.getContentType());
+            fileRepository.save(uploadFile);
+
+            return uploadFile;
         }catch(Exception e) {
             throw new FileUploadException("["+fileName+"] 파일 업로드에 실패하였습니다. 다시 시도하십시오.",e);
         }
     }
+
 
     public Resource loadFileAsResource(String fileName) {
         try {
@@ -64,6 +73,25 @@ public class FileUploadDownloadService {
         }catch(MalformedURLException e) {
             throw new FileDownloadException(fileName + " 파일을 찾을 수 없습니다.", e);
         }
+    }
+
+    public Iterable<UploadFile> getFileList(){
+        Iterable<UploadFile> iterable = fileRepository.findAll();
+
+        if(null == iterable) {
+            throw new FileDownloadException("업로드 된 파일이 존재하지 않습니다.");
+        }
+
+        return  iterable;
+    }
+
+    public Optional<UploadFile> getUploadFile(int id) {
+        Optional<UploadFile> uploadFile = fileRepository.findById(id);
+
+        if(null == uploadFile) {
+            throw new FileDownloadException("해당 아이디["+id+"]로 업로드 된 파일이 존재하지 않습니다.");
+        }
+        return uploadFile;
     }
 
 }

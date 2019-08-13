@@ -40,16 +40,16 @@ public class StargramApplication implements WebMvcConfigurer {
 	private PasswordEncoder passwordEncoder;
 
 
-	@Bean
-	public CommandLineRunner runner(UserRepository userRepository) {
-		return (args) -> {
-			User user = userRepository.save(User.builder()
-					.name("havi")
-					.password(passwordEncoder.encode("test"))
-					.email("havi@gmail.com")
-					.createdDate(LocalDateTime.now())
-					.build());
-
-		};
-	}
+//	@Bean
+//	public CommandLineRunner runner(UserRepository userRepository) {
+//		return (args) -> {
+//			User user = userRepository.save(User.builder()
+//					.name("havi")
+//					.password(passwordEncoder.encode("test"))
+//					.email("havi@gmail.com")
+//					.createdDate(LocalDateTime.now())
+//					.build());
+//
+//		};
+//	}
 }

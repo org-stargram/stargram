@@ -3,10 +3,12 @@ package com.web.controller;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.web.domain.UploadFile;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,30 +26,35 @@ import com.web.service.FileUploadDownloadService;
 @RestController
 @RequestMapping("/file")
 public class FileUploadController {
+
     private static final Logger logger = LoggerFactory.getLogger(FileUploadController.class);
 
     @Autowired
     private FileUploadDownloadService service;
 
-    @GetMapping({"/", ""})
+    @GetMapping("/")
     public String controllerMain() {
         return "Hello~ File Upload Test.";
     }
 
+    @GetMapping("/uploadFiles")
+    public Iterable<UploadFile> getUploadFileList(){
+        return service.getFileList();
+    }
+
+    @GetMapping("/uploadFile/{id}")
+    public Optional<UploadFile> getUploadFile(@PathVariable int id){
+        return service.getUploadFile(id);
+    }
     @PostMapping("/uploadFile")
-    public FileUploadResponse uploadFile(@RequestParam("file") MultipartFile file) {
-        String fileName = service.storeFile(file);
+    public UploadFile uploadFile(@RequestParam("file") MultipartFile file) {
+        UploadFile uploadFile = service.storeFile(file);
 
-        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/downloadFile/")
-                .path(fileName)
-                .toUriString();
-
-        return new FileUploadResponse(fileName, fileDownloadUri, file.getContentType(), file.getSize());
+        return uploadFile;
     }
 
     @PostMapping("/uploadMultipleFiles")
-    public List<FileUploadResponse> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files){
+    public List<UploadFile> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files){
         return Arrays.asList(files)
                 .stream()
                 .map(file -> uploadFile(file))
