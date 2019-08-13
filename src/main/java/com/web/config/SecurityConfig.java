@@ -33,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         CharacterEncodingFilter filter = new CharacterEncodingFilter();
         http
             .authorizeRequests()
-                .antMatchers("/", "/oauth2/**", "/login/**", "/register", "/upload/**",
+                .antMatchers("/", "/oauth2/**", "/login", "/login/**", "/register", "/upload/**",
                         "/fragments/**", "/board/list", "/assets/**", "/console/**", "/layout/**").permitAll()
                 .anyRequest().authenticated()
             .and()

@@ -1,6 +1,7 @@
 package com.web.controller;
 
 import com.web.annotation.SocialUser;
+import com.web.domain.Board;
 import com.web.domain.User;
 import com.web.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -30,12 +32,8 @@ public class AccountController {
     }
 
     @GetMapping("/register")
-    public String register(Model model, HttpSession session) {
-        String email = null;
-        if (session.getAttribute("user.email") != null){
-            email = session.getAttribute("user.email").toString();
-        }
-        model.addAttribute("user", userRepository.findByEmail(email));
+    public String register() {
+
         return "register";
     }
 
