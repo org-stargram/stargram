@@ -24,23 +24,24 @@
             <div class="banner-content">
 
                 <h1><i class="fa fa-smile"></i> Fluffs</h1>
-                <form class="form-signin">
+
+                <div class="form-signin">
                     <h3 class="form-signin-heading">Please register</h3>
                     <div class="form-group">
-                        <input name="email" type="text" class="form-control" placeholder="Email">
+                        <input id="email" type="text" class="form-control" placeholder="Email">
                     </div>
                     <div class="form-group">
-                        <input name="name" type="text" class="form-control" placeholder="Username">
+                        <input id="name" type="text" class="form-control" placeholder="Username">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" name="password" placeholder="Password">
+                        <input type="password" class="form-control" id="password" placeholder="Password">
                     </div>
 
                     <button id="signUp" class="kafe-btn kafe-btn-mint btn-block">Sign Up</button>
                     <br/>
 
                     <a class="btn btn-dark " href="/login" role="button">Already have an account? Click Here.</a>
-                </form>
+                </div>
 
             </div><!--/. banner-content -->
         </div><!-- /.container -->
@@ -50,15 +51,15 @@
 
 
 <th:block layout:fragment="pageCustomScript">
-<script th:if="!${session?.user}">
 
-        $('#signUp').click(function () {
-            var jsonData = JSON.stringify({
-                email: $('form [name="email"]').val(),
-                name: $('form [name="name"]').val(),
-                password: $('form [name="password"]').val()
-            });
-            $.ajax({
+<script>
+    $('#signUp').click(function () {
+        var jsonData = JSON.stringify({
+            email: $('#email').val(),
+            name: $('#name').val(),
+            password: $('#password').val()
+        });
+        $.ajax({
                    url: "http://localhost:8081/api/account",
                    type: "POST",
                    data: jsonData,
@@ -67,13 +68,13 @@
                        success: function () {
                            alert('저장 성공!');
                            location.href = '/login';
-                           alert('저장 성공!');
                    },
                    error: function () {
                        alert('저장 실패!');
                    }
                });
-        });
+    });
+
     </script>
 </th:block>
 
