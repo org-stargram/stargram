@@ -16,17 +16,21 @@
 
 	<style>
 	/* 추가부분 */
+	.textArea_comment {
+		width: 90%;
+		margin: 20px;
+		overflow-x: auto;
+		line-height: 20px;
+	}
 	.c_file_imgs_wrap {
-		width: 600px;
-		margin-top: 50px;
-		overflow-x:auto;
+		overflow-y: auto;
 		width: auto;
-		height: 500px;
-		border: solid; 1px;
+		height: 200px;
+		border-top: solid 1px;
 		margin: 20px;
 		line-height: 20px;
 	}
-	.c_file_imgs_wrap pre img {
+	.c_file_imgs_wrap img {
 		max-width: 200px;
 	}
 	</style>
@@ -43,8 +47,8 @@
 
 			 <div class="box">
 
-				<div contentEditable="true" class="form-control no-border c_file_imgs_wrap">
-
+				<textarea class="form-control no-border textArea_comment" rows="3" placeholder="무슨 생각을 하고 계신가요?..."></textarea>
+				<div class="c_file_imgs_wrap">
 				</div>
 
 
