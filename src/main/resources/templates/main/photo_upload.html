@@ -23,15 +23,23 @@
 		line-height: 20px;
 	}
 	.c_file_imgs_wrap {
+    	display: flex;
 		overflow-y: auto;
 		width: auto;
-		height: 200px;
+		height: 250px;
 		border-top: solid 1px;
 		margin: 20px;
 		line-height: 20px;
 	}
 	.c_file_imgs_wrap img {
-		max-width: 200px;
+		width: 200px;
+		height: 200px;
+		margin-right: 5px;
+	}
+	video {
+		width: 200px;
+		height: 200px;
+		margin-right: 5px;
 	}
 	</style>
 </head>
@@ -57,8 +65,9 @@
 					<ul class="nav nav-pills nav-sm">
 
 					<input type="file" id="c_file" multiple style="display:none;"/>
+					<input type="file" id="v_file" multiple style="display:none;"/>
 					<li class="nav-item"><a id="camera_file" class="nav-link" href="javascript:;"><i class="fa fa-camera text-muted"></i></a></li>
-					<li class="nav-item"><a class="nav-link" href="javascript:;"><i class="fa fa-video text-muted"></i></a></li>
+					<li class="nav-item"><a id="video_file" class="nav-link" href="javascript:;"><i class="fa fa-video text-muted"></i></a></li>
 
 					</ul>
 				</div>
@@ -73,9 +82,12 @@
 </th:block>
 
 <th:block layout:fragment="pageCustomScript">
+
+	<script th:src="@{/assets/js/customFile/file_upload.js}"></script>	<!-- 추가부분 -->
+
+
 	<script th:src="@{/assets/plugins/slimscroll/jquery.slimscroll.js}"></script>
 	<script>
-
 	$('#Slim,#Slim2').slimScroll({
 		height:"auto",
 		position: 'right',
@@ -83,50 +95,6 @@
 		alwaysVisible: true,
 		size:"8px",
 	});
-
-
-	$('#camera_file').click(function(e){
-		alert("asd");
-		e.preventDefault();
-		$("#c_file").click();
-		var ext = $("#c_file").val().split(".").pop().toLowerCase();
-		if(ext.length > 0){
-			if($.inArray(ext, ["gif","png","jpg","jpeg"]) == -1) {
-				alert("gif,png,jpg 파일만 업로드 할수 있습니다.");
-				return false;
-			}
-		}
-		$("#c_file").val().toLowerCase();
-	});
-
-	$(document).ready(function() {
-		$("#c_file").on("change", handleImgsFilesSelect);
-	});
-
-	var sel_files = [];
-
-	function handleImgsFilesSelect(e) {
-		var files = e.target.files;
-		var filesArr = Array.prototype.slice.call(files);
-
-		filesArr.forEach(function(f) {
-			if(!f.type.match("image.*")) {
-				alert("확장자는 이미지 확장자만 가능합니다.");
-				return;
-			}
-
-			sel_files.push(f);
-
-			var reader = new FileReader();
-			reader.onload = function(e) {
-				var img_html = "<img src=\"" + e.target.result + "\" />";
-				$(".c_file_imgs_wrap").append(img_html);
-			}
-			reader.readAsDataURL(f);
-		});
-	}
-
-
 	</script>
 </th:block>
 
