@@ -14,6 +14,22 @@
 
 	<link type="text/css" th:href="@{/assets/css/demos/photo.css}" rel="stylesheet" />
 
+	<style>
+	/* 추가부분 */
+	.c_file_imgs_wrap {
+		width: 600px;
+		margin-top: 50px;
+		overflow-x:auto;
+		width: auto;
+		height: 500px;
+		border: solid; 1px;
+		margin: 20px;
+		line-height: 20px;
+	}
+	.c_file_imgs_wrap pre img {
+		max-width: 200px;
+	}
+	</style>
 </head>
 
 <body>
@@ -27,67 +43,25 @@
 
 			 <div class="box">
 
-			  <form>
-			   <textarea class="form-control no-border" rows="3" placeholder="Type something..."></textarea>
-			  </form>
-			  <div class="box-footer clearfix">
-			   <button class="kafe-btn kafe-btn-mint-small pull-right btn-sm">Upload</button>
-			   <ul class="nav nav-pills nav-sm">
-				<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-camera text-muted"></i></a></li>
-				<li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-video text-muted"></i></a></li>
-			   </ul>
-			  </div>
-			 </div>
+				<div contentEditable="true" class="form-control no-border c_file_imgs_wrap">
+
+				</div>
+
+
+			  	<div class="box-footer clearfix">
+					<button class="kafe-btn kafe-btn-mint-small pull-right btn-sm">Upload</button>
+					<ul class="nav nav-pills nav-sm">
+
+					<input type="file" id="c_file" multiple style="display:none;"/>
+					<li class="nav-item"><a id="camera_file" class="nav-link" href="javascript:;"><i class="fa fa-camera text-muted"></i></a></li>
+					<li class="nav-item"><a class="nav-link" href="javascript:;"><i class="fa fa-video text-muted"></i></a></li>
+
+					</ul>
+				</div>
+			</div>
 
 			</div>
 		</div>
-
-
-		<div class="row one-row">
-			<div class="col-lg-12">
-			 <a href="https://picturepan2.github.io/instagram.css/" target="_blank">
-				 <h4>Instagram Filters from Picture Pan 2</h4>
-			 </a>
-			</div>
-		</div>
-
-		<div class="row">
-
-	<div class="col-lg-4 col-md-3 col-sm-6 col-xs-12">
-	  <div class="card">
-		<div class="card-image">
-		  <img src="assets/img/posts/18.jpg" class="img-responsive" alt="Image"/>
-		</div>
-		<div class="card-header">
-		  <span>Normal</span>
-		</div>
-	  </div>
-	</div>
-
-	<div class="col-lg-4 col-md-3 col-sm-6 col-xs-12">
-	  <div class="card">
-		<div class="card-image filter-1977">
-		  <img src="assets/img/posts/18.jpg" class="img-responsive" alt="Image"/>
-		</div>
-		<div class="card-header">
-		  <span class="h6">1977</span>
-		</div>
-	  </div>
-	</div>
-
-	<div class="col-lg-4 col-md-3 col-sm-6 col-xs-12">
-	  <div class="card">
-		<div class="card-image filter-willow">
-		  <img src="assets/img/posts/18.jpg" class="img-responsive" alt="Image"/>
-		</div>
-		<div class="card-header">
-		  <span class="h6">Willow</span>
-		</div>
-	  </div>
-	</div>
-
-	</div><!--/ row 3번 반복-->
-
 
 
 	</div><!--/ container -->
@@ -97,6 +71,7 @@
 <th:block layout:fragment="pageCustomScript">
 	<script th:src="@{/assets/plugins/slimscroll/jquery.slimscroll.js}"></script>
 	<script>
+
 	$('#Slim,#Slim2').slimScroll({
 		height:"auto",
 		position: 'right',
@@ -104,6 +79,50 @@
 		alwaysVisible: true,
 		size:"8px",
 	});
+
+
+	$('#camera_file').click(function(e){
+		alert("asd");
+		e.preventDefault();
+		$("#c_file").click();
+		var ext = $("#c_file").val().split(".").pop().toLowerCase();
+		if(ext.length > 0){
+			if($.inArray(ext, ["gif","png","jpg","jpeg"]) == -1) {
+				alert("gif,png,jpg 파일만 업로드 할수 있습니다.");
+				return false;
+			}
+		}
+		$("#c_file").val().toLowerCase();
+	});
+
+	$(document).ready(function() {
+		$("#c_file").on("change", handleImgsFilesSelect);
+	});
+
+	var sel_files = [];
+
+	function handleImgsFilesSelect(e) {
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				alert("확장자는 이미지 확장자만 가능합니다.");
+				return;
+			}
+
+			sel_files.push(f);
+
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				var img_html = "<img src=\"" + e.target.result + "\" />";
+				$(".c_file_imgs_wrap").append(img_html);
+			}
+			reader.readAsDataURL(f);
+		});
+	}
+
+
 	</script>
 </th:block>
 
