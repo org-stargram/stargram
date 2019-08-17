@@ -1,0 +1,26 @@
+
+.textArea_comment {
+    width: 90%;
+    margin: 20px;
+    overflow-x: auto;
+    line-height: 20px;
+}
+.c_file_imgs_wrap {
+    display: flex;
+    overflow-y: auto;
+    width: auto;
+    height: 250px;
+    border-top: solid 1px;
+    margin: 20px;
+    line-height: 20px;
+}
+.c_file_imgs_wrap img {
+    width: 200px;
+    height: 200px;
+    margin-right: 5px;
+}
+video {
+    width: 200px;
+    height: 200px;
+    margin-right: 5px;
+}

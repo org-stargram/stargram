@@ -13,35 +13,8 @@
 	<meta property="og:description" content="" />
 
 	<link type="text/css" th:href="@{/assets/css/demos/photo.css}" rel="stylesheet" />
+	<link type="text/css" th:href="@{/assets/css/customFile/file_upload.css}" rel="stylesheet" />
 
-	<style>
-	/* 추가부분 */
-	.textArea_comment {
-		width: 90%;
-		margin: 20px;
-		overflow-x: auto;
-		line-height: 20px;
-	}
-	.c_file_imgs_wrap {
-    	display: flex;
-		overflow-y: auto;
-		width: auto;
-		height: 250px;
-		border-top: solid 1px;
-		margin: 20px;
-		line-height: 20px;
-	}
-	.c_file_imgs_wrap img {
-		width: 200px;
-		height: 200px;
-		margin-right: 5px;
-	}
-	video {
-		width: 200px;
-		height: 200px;
-		margin-right: 5px;
-	}
-	</style>
 </head>
 
 <body>
@@ -54,20 +27,25 @@
 			<div class="col-lg-12">
 
 			 <div class="box">
+				 <form id="frm" name="frm" method="post" action="/board/write" enctype="multipart/form-data">
+					<textarea name="contents" id="contents" class="form-control no-border textArea_comment"
+							  maxlength="140" rows="3" placeholder="무슨 생각을 하고 계신가요?..."></textarea>
 
-				<textarea class="form-control no-border textArea_comment" rows="3" placeholder="무슨 생각을 하고 계신가요?..."></textarea>
+					 <input type="hidden" id="title" name="title" value=""/>
+					 <input type="file" id="files" name="files" multiple="multiple" style="display:none;">
+
+
+					 <input type="submit" id="submit" value="저장" class="btn" style="display:none;">
+				 </form>
+
 				<div class="c_file_imgs_wrap">
 				</div>
 
-
 			  	<div class="box-footer clearfix">
-					<button class="kafe-btn kafe-btn-mint-small pull-right btn-sm">Upload</button>
+					<button id="btn_submit" class="kafe-btn kafe-btn-mint-small pull-right btn-sm">Upload</button>
 					<ul class="nav nav-pills nav-sm">
 
-					<input type="file" id="c_file" multiple style="display:none;"/>
-					<input type="file" id="v_file" multiple style="display:none;"/>
 					<li class="nav-item"><a id="camera_file" class="nav-link" href="javascript:;"><i class="fa fa-camera text-muted"></i></a></li>
-					<li class="nav-item"><a id="video_file" class="nav-link" href="javascript:;"><i class="fa fa-video text-muted"></i></a></li>
 
 					</ul>
 				</div>
@@ -86,16 +64,6 @@
 	<script th:src="@{/assets/js/customFile/file_upload.js}"></script>	<!-- 추가부분 -->
 
 
-	<script th:src="@{/assets/plugins/slimscroll/jquery.slimscroll.js}"></script>
-	<script>
-	$('#Slim,#Slim2').slimScroll({
-		height:"auto",
-		position: 'right',
-		railVisible: true,
-		alwaysVisible: true,
-		size:"8px",
-	});
-	</script>
 </th:block>
 
 </body>

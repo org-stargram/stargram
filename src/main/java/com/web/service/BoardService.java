@@ -1,32 +1,24 @@
 package com.web.service;
 
 import com.web.domain.Board;
-import com.web.repository.BoardRepository;
-
+import com.web.domain.BoardFile;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-/**
- * Created by KimYJ on 2017-07-13.
- */
-@Service
-public class BoardService {
+import java.util.List;
 
-    private final BoardRepository boardRepository;
+public interface BoardService {
 
-    public BoardService(BoardRepository boardRepository) {
-        this.boardRepository = boardRepository;
-    }
 
-    public Page<Board> findBoardList(Pageable pageable) {
-        pageable = PageRequest.of(pageable.getPageNumber() <= 0 ? 0 : pageable.getPageNumber() - 1, pageable.getPageSize());
-        return boardRepository.findAll(pageable);
-    }
+    List<Board> selectBoardList() throws Exception;
 
-    public Board findBoardByIdx(Long idx) {
-        return boardRepository.findById(idx).orElse(new Board());
-    }
+    void saveBoard(Board board, MultipartHttpServletRequest multipartHttpServletRequest) throws Exception;
+
+    Board selectBoardDetail(int boardIdx) throws Exception;
+
+    void deleteBoard(int boardIdx);
+
+    BoardFile selectBoardFileInformation(int boardIdx, int idx) throws Exception;
 
 }

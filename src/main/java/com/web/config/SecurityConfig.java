@@ -47,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
                 .antMatchers("/", "/oauth2/**", "/login", "/login/**", "/register", "/upload/**",
                         "/fragments/**", "/board/list", "/assets/**", "/file/**", "/file", "/api/**",
-                        "/console/**", "/layout/**").permitAll()
+                        "/jpa/**", "/console/**", "/layout/**").permitAll()
                 .anyRequest().authenticated()
             .and()
                 .oauth2Login()

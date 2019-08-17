@@ -11,12 +11,12 @@ spring:
       max-file-size: 200MB
       max-request-size: 215MB
   jpa:
-    generate-ddl: false
+#    generate-ddl: false
+#    database: mysql
+#    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     show-sql: true
-    database: mysql
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-#    hibernate:
-#      ddl-auto: create
+    hibernate:
+      ddl-auto: create
   h2:
     console:
       enabled: true
@@ -49,6 +49,3 @@ custom:
   oauth2:
     kakao:
       client-id: 5ba7a22f6c6f6cfce15c09538b47889c
-
-file:
-  upload-dir: ./uploads
