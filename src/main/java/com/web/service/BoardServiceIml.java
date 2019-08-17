@@ -3,7 +3,9 @@ package com.web.service;
 import com.web.common.FileUtils;
 import com.web.domain.Board;
 import com.web.domain.BoardFile;
+import com.web.domain.User;
 import com.web.repository.BoardRepository;
+import com.web.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -22,6 +24,8 @@ public class BoardServiceIml implements BoardService {
     @Autowired
     private BoardRepository boardRepository;
 
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
     private FileUtils fileUtils;
@@ -32,8 +36,10 @@ public class BoardServiceIml implements BoardService {
     }
 
     @Override
-    public void saveBoard(Board board, MultipartHttpServletRequest multipartHttpServletRequest) throws Exception {
-        board.setCreatorId("admin");
+    public void saveBoard(Board board, MultipartHttpServletRequest multipartHttpServletRequest, User user) throws Exception {
+//        board.setCreatorId("admin");
+
+        board.setUser(user);
         List<BoardFile> list = fileUtils.parseFileInfo(multipartHttpServletRequest);
         if(CollectionUtils.isEmpty(list) == false){
             board.setFileList(list);

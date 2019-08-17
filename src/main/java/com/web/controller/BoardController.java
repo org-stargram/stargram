@@ -2,6 +2,7 @@ package com.web.controller;
 
 import com.web.domain.Board;
 import com.web.domain.BoardFile;
+import com.web.domain.User;
 import com.web.service.BoardService;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,9 +41,10 @@ public class BoardController {
     }
 
     @RequestMapping(value="/board/write", method=RequestMethod.POST)
-    public String writeBoard(Board board, MultipartHttpServletRequest multipartHttpServletRequest) throws Exception{
-        boardService.saveBoard(board, multipartHttpServletRequest);
-        return "redirect:/";
+    public String writeBoard(Board board, MultipartHttpServletRequest multipartHttpServletRequest,
+                             User user) throws Exception{
+        boardService.saveBoard(board, multipartHttpServletRequest, user);
+        return "redirect:/main/photo_profile";
     }
 
     @RequestMapping(value="/jpa/board/{boardIdx}", method=RequestMethod.GET)
@@ -56,8 +58,8 @@ public class BoardController {
     }
 
     @RequestMapping(value="/jpa/board/{boardIdx}", method=RequestMethod.PUT)
-    public String updateBoard(Board board) throws Exception{
-        boardService.saveBoard(board, null);
+    public String updateBoard(Board board, User user) throws Exception{
+        boardService.saveBoard(board, null, user);
         return "redirect:/jpa/board";
     }
 

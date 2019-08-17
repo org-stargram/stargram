@@ -31,6 +31,8 @@
 					<textarea name="contents" id="contents" class="form-control no-border textArea_comment"
 							  maxlength="140" rows="3" placeholder="무슨 생각을 하고 계신가요?..."></textarea>
 
+					 <input type="hidden" id="user" name="user" th:value="${session?.user.idx}"/>
+					 <input type="hidden" id="creatorId" name="creatorId" th:value="${session?.user.email}"/>
 					 <input type="hidden" id="title" name="title" value=""/>
 					 <input type="file" id="files" name="files" multiple="multiple" style="display:none;">
 

@@ -31,6 +31,16 @@ public class MainController {
         return "main/photo_upload";
     }
 
+    @GetMapping("/photo_stories")
+    public String photo_stories(@SocialUser User user) {
+        return "main/photo_stories";
+    }
+
+    @GetMapping("/photo_profile")
+    public String photo_profile(@SocialUser User user) {
+        return "main/photo_profile";
+    }
+
 }
 
 

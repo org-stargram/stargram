@@ -2,6 +2,7 @@ package com.web.service;
 
 import com.web.domain.Board;
 import com.web.domain.BoardFile;
+import com.web.domain.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -13,7 +14,7 @@ public interface BoardService {
 
     List<Board> selectBoardList() throws Exception;
 
-    void saveBoard(Board board, MultipartHttpServletRequest multipartHttpServletRequest) throws Exception;
+    void saveBoard(Board board, MultipartHttpServletRequest multipartHttpServletRequest, User user) throws Exception;
 
     Board selectBoardDetail(int boardIdx) throws Exception;
 
