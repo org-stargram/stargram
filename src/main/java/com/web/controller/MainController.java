@@ -18,23 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping(value = "/main")
 public class MainController {
+
     @Autowired
     private BoardServiceIml boardServiceIml;
-
-    @GetMapping("/photo_explore")
-    public String photo_explore(@SocialUser User user) {
-        return "main/photo_explore";
-    }
-
-    @GetMapping("/photo_upload")
-    public String photo_upload(@SocialUser User user) {
-        return "main/photo_upload";
-    }
-
-    @GetMapping("/photo_stories")
-    public String photo_stories(@SocialUser User user) {
-        return "main/photo_stories";
-    }
 
     @GetMapping("/photo_profile")
     public String photo_profile(@SocialUser User user) {

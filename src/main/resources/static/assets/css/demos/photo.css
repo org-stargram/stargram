@@ -89,6 +89,7 @@ a.navbar-brand:hover {
 }
 .navbar-right li {
     display: inline-block;
+    margin-left: 1.5em;
 }
 
 .navbar-right .search-dashboard {

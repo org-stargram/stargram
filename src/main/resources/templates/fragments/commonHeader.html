@@ -36,7 +36,7 @@
                     </li>
 
                     <li th:if="${session?.user}" class="dropdown mega-avatar">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                        <a th:href="@{/main/photo_profile}" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                             <span class="avatar w-32">
                                 <img th:src="@{#}" class="img-resonsive img-circle"
                                      th:onerror="@{javascript:this.src='/assets/img/users/no_thumnail.jpg'}" width="25" height="25" alt="...">
@@ -46,11 +46,17 @@
                             </span>
                         </a>
                         <div class="dropdown-menu w dropdown-menu-scale pull-right">
-                            <a class="dropdown-item" href="#"><span>New Story</span></a>
+                            <a class="dropdown-item" th:href="@{/main/photo_profile}">
+                                <span>Upload</span>
+                            </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#"><span>Profile</span></a>
+                            <a class="dropdown-item" th:href="@{#}">
+                                <span>Setting</span>
+                            </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/logout">Sign out</a>
+                            <a class="dropdown-item" href="/logout">
+                                Sign out
+                            </a>
                         </div>
                     </li><!-- /navbar-item -->
 
