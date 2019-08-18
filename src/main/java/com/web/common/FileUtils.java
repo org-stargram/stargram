@@ -27,7 +27,10 @@ public class FileUtils {
         ZonedDateTime current = ZonedDateTime.now();
 
 
-        String path = "upload/"+current.format(format);
+        String cur = current.format(format);
+        String path = "src/main/resources/static/upload/" + cur;
+        String webPath = "/upload/" + cur;
+
         File file = new File(path);
         if(file.exists() == false){
             file.mkdirs();
@@ -71,7 +74,7 @@ public class FileUtils {
                     boardFile.setBoardIdx(boardIdx);
                     boardFile.setFileSize(multipartFile.getSize());
                     boardFile.setOriginalFileName(multipartFile.getOriginalFilename());
-                    boardFile.setStoredFilePath(path + "/" + newFileName);
+                    boardFile.setStoredFilePath(webPath + "/" + newFileName);
                     fileList.add(boardFile);
 
                     file = new File(path + "/" + newFileName);
@@ -91,7 +94,11 @@ public class FileUtils {
 
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd");
         ZonedDateTime current = ZonedDateTime.now();
-        String path = "upload/"+current.format(format);
+
+        String cur = current.format(format);
+
+        String path = "src/main/resources/static/upload/" + cur;
+        String webPath = "/upload/" + cur;
         File file = new File(path);
         if(file.exists() == false){
             file.mkdirs();
@@ -134,7 +141,8 @@ public class FileUtils {
                     BoardFile boardFile = new BoardFile();
                     boardFile.setFileSize(multipartFile.getSize());
                     boardFile.setOriginalFileName(multipartFile.getOriginalFilename());
-                    boardFile.setStoredFilePath(path + "/" + newFileName);
+
+                    boardFile.setStoredFilePath(webPath + "/" + newFileName);
                     boardFile.setCreatorId("admin");
                     fileList.add(boardFile);
 

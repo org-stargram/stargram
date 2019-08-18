@@ -41,9 +41,15 @@ public class BoardServiceIml implements BoardService {
 
         board.setUser(user);
         List<BoardFile> list = fileUtils.parseFileInfo(multipartHttpServletRequest);
+
+        String thumnail = list.get(0).getStoredFilePath();
+
+
         if(CollectionUtils.isEmpty(list) == false){
             board.setFileList(list);
+            board.setThumnail(thumnail);
         }
+
         boardRepository.save(board);
     }
 

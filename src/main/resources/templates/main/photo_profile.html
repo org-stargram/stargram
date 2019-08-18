@@ -3,7 +3,7 @@
 	  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
 	  layout:decorator="/layout/defaultLayout">
   
-<!-- Mirrored from themashabrand.com/templates/Fluffs/photo_profile.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Jul 2019 13:14:21 GMT -->
+<!-- Mirrored from themashabrand.com/templates/Fluffs/photo_my_profile.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Jul 2019 13:14:21 GMT -->
 <head>
 	<title>Fluffs - Ultimate Bootstrap Social Network UI Kit</title>
 	<meta name="description" content="" />
@@ -20,233 +20,233 @@
 
 <th:block layout:fragment="content">
 
-	<section class="profile-two">
+	<section class="profile">
 		<div class="container-fluid">
 			<div class="row">
 
 				<div class="col-lg-3">
-					<aside id="leftsidebar" class="sidebar">
-						<ul class="list">
-							<li>
-								<div class="user-info">
-									<div class="image">
-										<a href="photo_profile_two.html">
-											<img th:src="@{#}" th:onerror="@{javascript:this.src='/assets/img/users/no_thumnail_big.jpg'}"
-                                                 class="img-responsive img-circle" alt="User">
-											<span class="online-status online"></span>
-										</a>
-									</div>
-									<div class="detail">
-										<h4>Vanessa Wells</h4>
-										<small>@vanessa</small>
-									</div>
-									<div class="row">
-										<div class="col-12">
-											<a title="facebook" href="#" class=" waves-effect waves-block"><i class="fab fa-facebook"></i></a>
-											<a title="twitter" href="#" class=" waves-effect waves-block"><i class="fab fa-twitter"></i></a>
-											<a title="instagram" href="#" class=" waves-effect waves-block"><i class="fab fa-instagram"></i></a>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li>
-								<small class="text-muted"><a href="photo_profile_two.html">320 Posts <em class="fa fa-angle-right pull-right"></em></a> </small><br/>
-								<small class="text-muted"><a href="photo_followers.html">2456 Followers <em class="fa fa-angle-right pull-right"></em></a> </small><br/>
-								<small class="text-muted"><a href="photo_followers.html">456 Following <em class="fa fa-angle-right pull-right"></em></a> </small>
-								<hr>
-								<small class="text-muted">Bio: </small>
-								<p>795 Folsom Ave, Suite 600 San Francisco, CADGE 94107</p>
-								<hr>
-								<small class="text-muted">Website: </small>
-								<p>http://www.themashabrand.com </p>
-								<hr>
-							</li>
-						</ul>
-					</aside>
-				</div><!--/ col-lg-3-->
-
-				<div class="col-lg-6">
-
-                    <!-- 업로드 추가부분 시작 -->
-
-                    <section class="upload">
-                        <div class="container" style="width: auto">
-
-                            <div class="row">
-                                <div class="col-lg-12">
-
-                                    <div class="box">
-                                        <form id="frm" name="frm" method="post" action="/board/write" enctype="multipart/form-data">
-					<textarea name="contents" id="contents" class="form-control no-border textArea_comment"
-                              maxlength="140" rows="3" placeholder="무슨 생각을 하고 계신가요?..."></textarea>
-
-                                            <input type="hidden" id="user" name="user" th:value="${session?.user.idx}"/>
-                                            <input type="hidden" id="creatorId" name="creatorId" th:value="${session?.user.email}"/>
-                                            <input type="hidden" id="title" name="title" value=""/>
-                                            <input type="file" id="files" name="files" multiple="multiple" style="display:none;">
-
-
-                                            <input type="submit" id="submit" value="저장" class="btn" style="display:none;">
-                                        </form>
-
-                                        <div class="c_file_imgs_wrap">
-                                        </div>
-
-                                        <div class="box-footer clearfix">
-                                            <button id="btn_submit" class="kafe-btn kafe-btn-mint-small pull-right btn-sm">Upload</button>
-                                            <ul class="nav nav-pills nav-sm">
-
-                                                <li class="nav-item"><a id="camera_file" class="nav-link" href="javascript:;"><i class="fa fa-camera text-muted"></i></a></li>
-
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                        </div><!--/ container -->
-                    </section><!--/ newsfeed -->
-
-                    <!-- 업로드 추가부분 끝 -->
-
-					<div class="row" style="background: #fff;">
-
-						<div class="col-lg-6">
-							<a href="#myModal" data-toggle="modal">
-								<div class="explorebox"
-									 style="background: linear-gradient( rgba(34,34,34,0.2), rgba(34,34,34,0.2)), url('assets/img/posts/6.jpg') no-repeat;
-					  background-size: cover;
-					  background-position: center center;
-					  -webkit-background-size: cover;
-					  -moz-background-size: cover;
-					  -o-background-size: cover;">
-									<div class="explore-top">
-										<div class="explore-like"><i class="fa fa-heart"></i> <span>312</span></div>
-										<div class="explore-circle pull-right"><i class="far fa-bookmark"></i></div>
-									</div>
-								</div>
-							</a>
-						</div>
-
-						<div class="col-lg-6">
-							<a href="#myModal" data-toggle="modal">
-								<div class="explorebox"
-									 style="background: linear-gradient( rgba(34,34,34,0.2), rgba(34,34,34,0.2)), url('assets/img/posts/9.jpg') no-repeat;
-					  background-size: cover;
-					  background-position: center center;
-					  -webkit-background-size: cover;
-					  -moz-background-size: cover;
-					  -o-background-size: cover;">
-									<div class="explore-top">
-										<div class="explore-like"><i class="fa fa-heart"></i> <span>624</span></div>
-										<div class="explore-circle pull-right"><i class="far fa-bookmark"></i></div>
-									</div>
-								</div>
-							</a>
-						</div>
-
-					</div><!--/ row -->
-
+					<div class="profilebox hidden-xs hidden-sm"
+						 style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url('assets/img/posts/4.jpg') no-repeat;
+		          background-size: cover;
+                  background-position: center center;
+                  -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;">
+					</div>
+					<div class="profilebox hidden-xs hidden-sm"
+						 style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url('assets/img/posts/1.jpg') no-repeat;
+		          background-size: cover;
+                  background-position: center center;
+                  -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;">
+					</div>
 				</div>
-
+				<div class="col-lg-6">
+					<div class="profilebox-large hidden-xs hidden-sm"
+						 style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url('assets/img/posts/9.jpg') no-repeat;
+		          background-size: cover;
+                  background-position: center center;
+                  -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;">
+					</div>
+				</div>
 				<div class="col-lg-3">
-
-					<div class="suggestion-box full-width">
-						<div class="suggestions-list">
-							<div class="suggestion-body">
-								<img class="img-responsive img-circle" src="assets/img/users/1.jpg" alt="">
-								<div class="name-box">
-									<h4>Vanessa Wells</h4>
-									<span>@vannessa</span>
-								</div>
-								<span><i class="fa fa-plus"></i></span>
-							</div>
-							<div class="suggestion-body">
-								<img class="img-responsive img-circle" src="assets/img/users/2.jpg" alt="">
-								<div class="name-box">
-									<h4>Anthony McCartney</h4>
-									<span>@antony</span>
-								</div>
-								<span><i class="fa fa-plus"></i></span>
-							</div>
-							<div class="suggestion-body">
-								<img class="img-responsive img-circle" src="assets/img/users/3.jpg" alt="">
-								<div class="name-box">
-									<h4>Anna Morgan</h4>
-									<span>@anna</span>
-								</div>
-								<span><i class="fa fa-plus"></i></span>
-							</div>
-							<div class="suggestion-body">
-								<img class="img-responsive img-circle" src="assets/img/users/4.jpg" alt="">
-								<div class="name-box">
-									<h4>Sean Coleman</h4>
-									<span>@sean</span>
-								</div>
-								<span><i class="fa fa-plus"></i></span>
-							</div>
-							<div class="suggestion-body">
-								<img class="img-responsive img-circle" src="assets/img/users/5.jpg" alt="">
-								<div class="name-box">
-									<h4>Grace Karen</h4>
-									<span>@grace</span>
-								</div>
-								<span><i class="fa fa-plus"></i></span>
-							</div>
-							<div class="suggestion-body">
-								<img class="img-responsive img-circle" src="assets/img/users/6.jpg" alt="">
-								<div class="name-box">
-									<h4>Clifford Graham</h4>
-									<span>@clifford</span>
-								</div>
-								<span><i class="fa fa-plus"></i></span>
-							</div>
-						</div><!--suggestions-list end-->
+					<div class="profilebox hidden-xs hidden-sm"
+						 style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url('assets/img/posts/11.jpg') no-repeat;
+		          background-size: cover;
+                  background-position: center center;
+                  -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;">
 					</div>
-
-					<div class="trending-box">
-						<div class="row">
-							<div class="col-lg-12">
-								<h4>Trending Photos</h4>
-							</div>
-						</div>
+					<div class="profilebox"
+						 style="background: linear-gradient( rgba(34,34,34,0.6), rgba(34,34,34,0.6)), url('assets/img/posts/12.jpg') no-repeat;
+		          background-size: cover;
+                  background-position: center center;
+                  -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;">
 					</div>
-
-					<div class="trending-box">
-						<div class="row">
-							<div class="col-lg-6">
-								<a href="#"><img src="assets/img/posts/17.jpg" class="img-responsive" alt="Image"/></a>
-							</div>
-							<div class="col-lg-6">
-								<a href="#"><img src="assets/img/posts/12.jpg" class="img-responsive" alt="Image"/></a>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-6">
-								<a href="#"><img src="assets/img/posts/21.gif" class="img-responsive" alt="Image"/></a>
-							</div>
-							<div class="col-lg-6">
-								<a href="#"><img src="assets/img/posts/23.gif" class="img-responsive" alt="Image"/></a>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-6">
-								<a href="#"><img src="assets/img/posts/11.jpg" class="img-responsive" alt="Image"/></a>
-							</div>
-							<div class="col-lg-6">
-								<a href="#"><img src="assets/img/posts/20.jpg" class="img-responsive" alt="Image"/></a>
-							</div>
-						</div>
-					</div>
-
-
 				</div>
 
 			</div><!--/ row-->
 		</div><!--/ container -->
 	</section><!--/ profile -->
+
+	<section class="user-profile">
+		<div class="container-fluid">
+			<div class="row">
+
+				<div class="col-lg-12">
+					<div class="post-content">
+						<div class="author-post text-center">
+							<a href="#"><img class="img-fluid img-circle" src="assets/img/users/13.jpg" alt="Image"></a>
+						</div><!-- /author -->
+					</div><!-- /.post-content -->
+				</div><!-- /col-sm-12 -->
+
+			</div><!--/ row-->
+		</div><!--/ container -->
+	</section><!--/ profile -->
+
+	<section class="details">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+
+					<div class="details-box row">
+						<div class="col-lg-9">
+							<div class="content-box">
+								<h4>Anna Morgan <i class="fa fa-check"></i></h4>
+								<p>Welcome to the offical account of Anna Morgan. Success is in the PIXELS, <span class="hashtag">#pixels</span></p>
+								<small><span>www.themashabrand.com</span></small>
+							</div><!--/ media -->
+						</div>
+						<div class="col-lg-3">
+							<div class="follow-box">
+								<a href="#" class="kafe-btn kafe-btn-mint"><i class="fa fa-check"></i> Following</a>
+							</div><!--/ dropdown -->
+						</div>
+					</div><!--/ details-box -->
+
+				</div>
+			</div>
+		</div><!--/ container -->
+	</section><!--/ profile -->
+
+	<section class="home-menu">
+		<div class="container">
+			<div class="row">
+
+				<div class="menu-category">
+					<ul class="menu">
+						<li class="current-menu-item"><a href="photo_profile.html">Posts <span>1.7k</span></a></li>
+						<li><a href="photo_followers.html">Followers <span>1.3M</span></a></li>
+						<li><a href="photo_followers.html">Following <span>1200</span></a></li>
+					</ul>
+				</div>
+
+			</div><!--/row -->
+		</div><!--/container -->
+	</section><!--/home-menu -->
+
+	<section class="newsfeed">
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-lg-4">
+					<a href="#myModal" data-toggle="modal">
+						<div class="explorebox"
+							 style="background: linear-gradient( rgba(34,34,34,0.2), rgba(34,34,34,0.2)), url('assets/img/posts/14.jpg') no-repeat;
+		          background-size: cover;
+                  background-position: center center;
+                  -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;">
+							<div class="explore-top">
+								<div class="explore-like"><i class="fa fa-heart"></i> <span>14,100</span></div>
+								<div class="explore-circle pull-right"><i class="far fa-bookmark"></i></div>
+							</div>
+						</div>
+					</a>
+				</div><!--/ col-lg-4 -->
+
+				<div class="col-lg-4">
+					<a href="#myModal" data-toggle="modal">
+						<div class="explorebox"
+							 style="background: linear-gradient( rgba(34,34,34,0.2), rgba(34,34,34,0.2)), url('assets/img/posts/18.jpg') no-repeat;
+		          background-size: cover;
+                  background-position: center center;
+                  -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;">
+							<div class="explore-top">
+								<div class="explore-like"><i class="fa fa-heart"></i> <span>100,100</span></div>
+								<div class="explore-circle pull-right"><i class="far fa-bookmark"></i></div>
+							</div>
+						</div>
+					</a>
+				</div><!--/ col-lg-4 -->
+
+				<div class="col-lg-4">
+					<a href="#myModal" data-toggle="modal">
+						<div class="explorebox"
+							 style="background: linear-gradient( rgba(34,34,34,0.2), rgba(34,34,34,0.2)), url('assets/img/posts/15.jpg') no-repeat;
+		          background-size: cover;
+                  background-position: center center;
+                  -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;">
+							<div class="explore-top">
+								<div class="explore-like"><i class="fa fa-heart"></i> <span>100</span></div>
+								<div class="explore-circle pull-right"><i class="far fa-bookmark"></i></div>
+							</div>
+						</div>
+					</a>
+				</div><!--/ col-lg-4 -->
+
+			</div><!--/ row -->
+
+			<div class="row">
+
+				<div class="col-lg-4">
+					<a href="#myModal" data-toggle="modal">
+						<div class="explorebox"
+							 style="background: linear-gradient( rgba(34,34,34,0.2), rgba(34,34,34,0.2)), url('assets/img/posts/25.jpg') no-repeat;
+		          background-size: cover;
+                  background-position: center center;
+                  -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;">
+							<div class="explore-top">
+								<div class="explore-like"><i class="fa fa-heart"></i> <span>324</span></div>
+								<div class="explore-circle pull-right"><i class="far fa-bookmark"></i></div>
+							</div>
+						</div>
+					</a>
+				</div><!--/ col-lg-4 -->
+
+				<div class="col-lg-4">
+					<a href="#myModal" data-toggle="modal">
+						<div class="explorebox"
+							 style="background: linear-gradient( rgba(34,34,34,0.2), rgba(34,34,34,0.2)), url('assets/img/posts/36.jpg') no-repeat;
+		          background-size: cover;
+                  background-position: center center;
+                  -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;">
+							<div class="explore-top">
+								<div class="explore-like"><i class="fa fa-heart"></i> <span>1023</span></div>
+								<div class="explore-circle pull-right"><i class="far fa-bookmark"></i></div>
+							</div>
+						</div>
+					</a>
+				</div><!--/ col-lg-4 -->
+
+				<div class="col-lg-4">
+					<a href="#myModal" data-toggle="modal">
+						<div class="explorebox"
+							 style="background: linear-gradient( rgba(34,34,34,0.2), rgba(34,34,34,0.2)), url('assets/img/posts/26.jpg') no-repeat;
+		          background-size: cover;
+                  background-position: center center;
+                  -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;">
+							<div class="explore-top">
+								<div class="explore-like"><i class="fa fa-heart"></i> <span>40</span></div>
+								<div class="explore-circle pull-right"><i class="far fa-bookmark"></i></div>
+							</div>
+						</div>
+					</a>
+				</div><!--/ col-lg-4 -->
+
+			</div><!--/ row -->
+
+		</div><!--/ container -->
+	</section><!--/ newsfeed -->
 
 	<div id="myModal" class="modal fade">
 		<div class="modal-dialog">
@@ -256,7 +256,7 @@
 					<div class="row">
 
 						<div class="col-md-8 modal-image">
-							<img class="img-responsive" src="assets/img/posts/9.jpg" alt="Image"/>
+							<img class="img-responsive" src="assets/img/posts/15.jpg" alt="Image"/>
 						</div><!--/ col-md-8 -->
 						<div class="col-md-4 modal-meta">
 							<div class="modal-meta-top">
@@ -324,7 +324,7 @@
 											<a class="modal-comment" href="#"><i class="fa fa-comments"></i></a><span> 786,286</span> </li>
 										<li>
 			   <span class="thumb-xs">
-				<img class="img-responsive img-circle" src="assets/img/users/13.jpg" alt="Image">
+				<img class="img-responsive img-circle" src="assets/img/users/13.jpg" alt="...">
 			   </span>
 											<div class="comment-body">
 												<input class="form-control input-sm" type="text" placeholder="Write your comment...">
@@ -350,7 +350,8 @@
 	<!-- 아직 없음 -->
 </th:block>
 
+
 </body>
 
-<!-- Mirrored from themashabrand.com/templates/Fluffs/photo_profile.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Jul 2019 13:14:39 GMT -->
+<!-- Mirrored from themashabrand.com/templates/Fluffs/photo_my_profile.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Jul 2019 13:14:39 GMT -->
 </html>

@@ -34,7 +34,6 @@
 				return;
 			}
 */
-
 			sel_files.push(f);
 
 			var reader = new FileReader();

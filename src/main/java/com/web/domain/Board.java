@@ -50,6 +50,9 @@ public class Board implements Serializable {
     @OneToOne(fetch= FetchType.LAZY)
     private User user;
 
+    @Column
+    private String thumnail;
+
     @OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinColumn(name="boardIdx")
     private List<BoardFile> fileList;
@@ -57,7 +60,7 @@ public class Board implements Serializable {
     @Builder
     public Board(String title, String contents, LocalDateTime createdDatetime,
                  String creatorId, LocalDateTime updatedDatetime, String updaterId,
-                 User user, List<BoardFile> fileList) {
+                 User user, List<BoardFile> fileList, String thumnail) {
         this.title = title;
         this.contents = contents;
         this.createdDatetime = createdDatetime;
@@ -66,6 +69,7 @@ public class Board implements Serializable {
         this.updaterId = updaterId;
         this.user = user;
         this.fileList = fileList;
+        this.thumnail = thumnail;
     }
 
 

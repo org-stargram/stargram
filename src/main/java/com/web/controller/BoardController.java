@@ -26,25 +26,23 @@ public class BoardController {
     private BoardService boardService;
 
     @RequestMapping(value="/jpa/board", method= RequestMethod.GET)
-    public ModelAndView openBoardList(ModelMap model) throws Exception{
+    public ModelAndView openBoardList(ModelMap model) throws Exception {
         ModelAndView mv = new ModelAndView("/board/jpaBoardList");
 
         List<Board> list = boardService.selectBoardList();
+
+
         mv.addObject("list", list);
 
         return mv;
     }
 
-    @RequestMapping(value="/jpa/board/write", method=RequestMethod.GET)
-    public String openBoardWrite() throws Exception{
-        return "/board/jpaBoardWrite";
-    }
 
     @RequestMapping(value="/board/write", method=RequestMethod.POST)
     public String writeBoard(Board board, MultipartHttpServletRequest multipartHttpServletRequest,
                              User user) throws Exception{
         boardService.saveBoard(board, multipartHttpServletRequest, user);
-        return "redirect:/main/photo_profile";
+        return "redirect:/main/photo_my_profile";
     }
 
     @RequestMapping(value="/jpa/board/{boardIdx}", method=RequestMethod.GET)

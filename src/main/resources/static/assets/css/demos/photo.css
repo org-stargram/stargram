@@ -681,12 +681,13 @@ a.navbar-brand:hover {
 .cardbox .cardbox-item {
     position: relative;
     display: block;
+    align: center
 }
 .cardbox .cardbox-item img{
 }
 .img-responsive{
     display: block;
-    max-width: 100%;
+    max-width: 90%;
     height: auto;
 }	
 .fw {
